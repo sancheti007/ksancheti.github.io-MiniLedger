@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Light theme */
+  --bg-primary: #f5f6fa;
+  --bg-secondary: #eef0f6;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --text-primary: #1a1d2e;
+  --text-secondary: #4b5068;
+  --text-muted: #8b90a7;
+  --border: #e2e5f0;
+  --hover-bg: #f0f2fb;
+  --accent: #4f46e5;
+  --accent-light: #eef2ff;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f1117;
+  --bg-secondary: #161921;
+  --card-bg: #1c2030;
+  --nav-bg: #161921;
+  --text-primary: #e8eaf2;
+  --text-secondary: #9ba3c0;
+  --text-muted: #5c6480;
+  --border: #252a3a;
+  --hover-bg: #222740;
+  --accent: #6366f1;
+  --accent-light: #1e1f3a;
+  --success: #22c55e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Sora', 'Noto Sans Devanagari', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Print styles */
+@media print {
+  .navbar, .header-actions, .btn-print, .btn-primary, .btn-secondary, .action-btns, .filter-bar, .search-bar {
+    display: none !important;
+  }
+  body { background: white; }
+  .page { padding: 0; }
+  .card, .section-card { border: 1px solid #ccc; box-shadow: none; }
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page { animation: fadeIn 0.3s ease; }
